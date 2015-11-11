@@ -15,11 +15,11 @@
 		<?php foreach ($category as $category_item): ?>
 			<?php if($category_item['id'] == $product_item['category_id']): ?>
 				<option selected="selected" value="<?php echo $category_item['id']; ?>">
-				   <?php echo $category_item['name']; ?>
+				   <?php echo $category_item['title']; ?>
 				</option>
 			<?php else: ?>
 				<option value="<?php echo $category_item['id']; ?>">
-				   <?php echo $category_item['name']; ?>
+				   <?php echo $category_item['title']; ?>
 				</option>
 			<?php endif; ?>
 		<?php endforeach ?>
@@ -31,7 +31,7 @@
 	<input type="input" name="price" value=<?php echo $product_item['price']?>><br />
 
 	<label for="pictureUrl">Picture URL</label>
-	<input type="input" name="pictureUrl" value=<?php echo $product_item['pictureUrl']?>><br />
+	<input type="input" name="pictureUrl" value=<?php echo $product_item['pictureUrls']?>><br />
 
 	<label for="stocks">Stocks</label>
 	<input type="input" name="stocks" value=<?php echo $product_item['stocks']?>><br />

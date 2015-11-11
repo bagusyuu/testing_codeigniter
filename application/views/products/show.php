@@ -1,6 +1,6 @@
 <h2><?php echo $product_item['title'] ?></h2>
 <div class="main">
-	<img src=<?php echo $product_item['pictureUrl']?>><br/>
+	<img src=<?php echo $product_item['pictureUrls']?>><br/>
   <label><?php echo $product_item['content'] ?></label><br/>
   <label><?php echo $product_item['price'] ?></label>
   <?php

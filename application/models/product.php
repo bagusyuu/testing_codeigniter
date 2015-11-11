@@ -15,26 +15,19 @@ class Product extends CI_Model {
 		return $query->row_array();
 	}
 
-	public function set_product(){
+	public function set_product($data){
 		$this->load->helper('url');
-
-		$data = array(
-			'title' => $this->input->post('title'),
-			'content' => $this->input->post('content'),
-			'category_id' => $this->input->post('category_id'),
-			'user_id' => $this->input->post('user_id'),
-			'price' => $this->input->post('price'),
-			'latitude' => $this->input->post('latitude'),
-			'longitude' => $this->input->post('longitude'),
-			'type' => $this->input->post('type'),
-			'locationLabel' => $this->input->post('locationLabel'),
-			'pictureUrl' => $this->input->post('pictureUrl'),
-			'bidEndAt' => $this->input->post('bidEndAt'),
-			'stocks' => $this->input->post('stocks'),
-			'weight' => $this->input->post('weight')
+		$datas = array(
+			'title' => $data['title'],
+			'content' => $data['content'],
+			'category_id' => $data['category_id'],
+			'price' => $data['price'],
+			'pictureUrls' => $data['pictureUrl'],
+			'stocks' => $data['stocks'],
+			'weight' => $data['weight'],
+			'user_id' => $data['user_id']
 		);
-
-		return $this->db->insert('products', $data);
+		return $this->db->insert('products', $datas);
 	}
 
 	public function update_product($id, $data){

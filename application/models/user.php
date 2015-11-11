@@ -20,8 +20,6 @@ class User extends CI_Model {
 
 		$data = array(
 			'email' => $this->input->post('email'),
-			'firstName' => $this->input->post('firstName'),
-			'lastName' => $this->input->post('lastName'),
 			'password' => $this->input->post('password')
 		);
 		$result = $this->db->insert('users', $data);

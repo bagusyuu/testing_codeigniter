@@ -15,11 +15,15 @@
 				
 				<?php
 					if(isset($this->session->userdata['logged_in'])) {
-						echo "<div style='float:left;'><a href='/CodeIgniter/index.php/products/create'>Buat Product</a></div>";
-						echo "<div style='float:left;'>|<a href='/CodeIgniter/index.php/logout'>Keluar</a></div>";
+						echo "<div style='float:left;'><a href='".base_url()."index.php/products/create'>Buat Product</a></div>";
+						echo "<div style='float:left;'>|<a href='".base_url()."index.php/logout'>Keluar</a></div>";
+						// echo "<div style='float:left;'><a href='/CodeIgniter/index.php/products/create'>Buat Product</a></div>";
+						// echo "<div style='float:left;'>|<a href='/CodeIgniter/index.php/logout'>Keluar</a></div>";
 					} else {
-						echo "<div style='float:left;'><a href='/CodeIgniter/index.php/sign-up'>Daftar</a></div>";
-						echo "<div style='float:left;'>|<a href='/CodeIgniter/index.php/login'>masuk</a></div>";
+						echo "<div style='float:left;'><a href='".base_url()."index.php/sign-up'>Daftar</a></div>";
+						echo "<div style='float:left;'>|<a href='".base_url()."index.php/login'>Masuk</a></div>";
+						// echo "<div style='float:left;'><a href='/CodeIgniter/index.php/sign-up'>Daftar</a></div>";
+						// echo "<div style='float:left;'>|<a href='/CodeIgniter/index.php/login'>masuk</a></div>";
 					}
 				?>
 			</div>

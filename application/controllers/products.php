@@ -71,8 +71,27 @@ class Products extends CI_Controller {
 
 		} else {
 			// $this->input->post('user_id') = $session_data['id'];
-			$this->product->set_product();
-			redirect('/home', $data);
+			$data = array(
+				'title' => $this->input->post('title'),
+				'content' => $this->input->post('content'),
+				'category_id' => $this->input->post('category_id'),
+				'user_id' => $this->input->post('user_id'),
+				'price' => $this->input->post('price'),
+				'pictureUrl' => $this->input->post('pictureUrl'),
+				'stocks' => $this->input->post('stocks'),
+				'weight' => $this->input->post('weight')
+			);
+			$result = $this->product->set_product($data);
+			if($result){
+				redirect('/home', $data);
+			} else {
+				echo $result;
+				$data['category'] = $this->category->get_category();
+				$this->load->view('templates/header', $data);
+				$this->load->view('products/create');
+				$this->load->view('templates/footer');				
+			}
+			
 		}
 	}
 
@@ -101,12 +120,7 @@ class Products extends CI_Controller {
 				'category_id' => $this->input->post('category_id'),
 				'user_id' => $this->input->post('user_id'),
 				'price' => $this->input->post('price'),
-				'latitude' => $this->input->post('latitude'),
-				'longitude' => $this->input->post('longitude'),
-				'type' => $this->input->post('type'),
-				'locationLabel' => $this->input->post('locationLabel'),
-				'pictureUrl' => $this->input->post('pictureUrl'),
-				'bidEndAt' => $this->input->post('bidEndAt'),
+				'pictureUrls' => $this->input->post('pictureUrl'),
 				'stocks' => $this->input->post('stocks'),
 				'weight' => $this->input->post('weight')
 			);
